@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-uz7xr9dn+0bsak_s6^2u_0sca%mqyeb8mez7+8w4#6m%a1n59%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,7 +82,7 @@ DATABASES = {
     }
 }
 
-
+# mysql database conncetion data base 
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql', 
@@ -135,17 +135,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
 
 
 #-------------------------------static files--------------------------------------------------------------
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static") # this is your static folder
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static") # this is your static folder
+# ]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+# STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
 
 #---------------------------------------------------------------------------------------------------------
 
@@ -153,9 +154,9 @@ STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
 
 
 #---------------------------------------media-----------------------------------------------------------
-MEDIA_URL ='/media/'
+# MEDIA_URL ='/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 #-----------------------------------------------------------------------------------------------------
 
 
