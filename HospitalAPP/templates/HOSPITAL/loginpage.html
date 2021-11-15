@@ -1,0 +1,24 @@
+{% extends "HOSPITAL/base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+  
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-xl-6 col-sm-4 offset-4">
+            <h1 class="btn btn-outline-info">HOSPITAL login page</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{user|crispy}}
+                <input type="submit" value="Submit" class="btn btn-info">
+                <input type="reset" value="Cancel" class="btn btn-outline-info bg-dark ">
+            </form>
+          
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

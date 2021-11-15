@@ -1,0 +1,62 @@
+{% extends 'HOSPITAL/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-info">
+                <input type="reset" value="Cancel" class="btn btn-warning">
+
+            </form>
+        </div>
+
+
+        {% if form %}
+
+        <div class="col-sm-6 mt-5">
+            <h4 class="alert alert-dark">DOCTOR DETAILES</h4>
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">ADDRESS</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">USER&nbsp;ID</th>
+                        <th scope="col">PROFILE</th>
+                        <th scope="col">MOBILE</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+    
+                    {% for i in form %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.status}}</td>
+                        <td>{{i.user_id}}</td>
+                        <td>{{i.profile_pic.urls}}</td>
+                        <td>{{i.mobile}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h4 class="display-6">No DOCTOR DETAILES</h4>
+{% endif %}
+
+{% endblock %}

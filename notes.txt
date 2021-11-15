@@ -1,0 +1,1 @@
+hospital_doctor, hospital_doctor_departments, hospital_patient, hospital_roomKind, hospital_room, hospital_appointment, hospital_roombookings,hospital_patientInsurance, hospital_patientdischargedetails, Hospital_PaymentType, Hospital_patientPayment, hospital_MedcineType, hospital_MedcineBrand, hospital_Medcine, hospital_dischargeMedication, zipCode

@@ -1,9 +1,16 @@
 .navbar{
-    padding: 150px;
-    font-size: 30px;
+    padding: 0px;
+    font-size: 5px;
     color: white;
+   
 }
 /* nav links  */
 .nav-link{
     color: white;
+}
+.collapse{
+    font-size: 10px;
+}
+nav-link{
+    background-color: aliceblue;
 }

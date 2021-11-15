@@ -1,0 +1,48 @@
+{% extends 'HOSPITAL/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Submit" class="btn btn-info">
+            </form>
+        </div>
+
+
+        {% if hdepartment %}
+
+        <div class="col-sm-6 mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for i in hdepartment %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h4>No django</h4>
+{% endif %}
+
+{% endblock %}

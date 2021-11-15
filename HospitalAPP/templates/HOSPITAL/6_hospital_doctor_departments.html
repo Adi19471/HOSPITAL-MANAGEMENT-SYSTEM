@@ -1,0 +1,54 @@
+{% extends 'HOSPITAL/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-info">
+                <input type="reset" value="Cancel" class="btn btn-warning">
+
+            </form>
+        </div>
+
+
+        {% if hdbe %}
+
+        <div class="col-sm-6 mt-5">
+            <h4 class="alert alert-dark">DOCTOR DETAILES</h4>
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">DOCID</th>
+                        <th scope="col">DEPID</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+    
+                    {% for i in hdbe %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.doc_id}}</td>
+                        <td>{{i.dep_id}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h4 class="display-6">No DOCTOR DETAILES</h4>
+{% endif %}
+
+{% endblock %}
