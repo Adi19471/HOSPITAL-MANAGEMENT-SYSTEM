@@ -1,0 +1,73 @@
+{% extends 'HOSPITAL/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 mt-5">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Submit" class="btn btn-info">
+                <input type="reset" value="Cancel" class="btn btn-warning">
+
+            </form>
+        </div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+
+
+        {% if hpatient %}
+
+
+        <div class="col-sm-6 mt-5">
+            <h4 class="alert alert-dark">HOSPITAL PATIENT PAYMENT </h4>
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">TOTAL</th>
+                        <th scope="">PAID</th>
+                        <th scope="">PAYMENT&nbsp;TYPE&NBSP;ID</th>
+                        <th scope="">BALENCE</th>
+                        <th scope="">REFRENCE&nbsp;DETAILES</th>
+                      
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for i in hpatient %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.total}}</td>
+                        <td>{{i.paid}}</td>
+                        <td>{{i.paymentTypeId}}</td>
+                        <td>{{i.balance}}</td>
+                        <td>{{i.referenceDetails}}</td>
+                       
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h4 class="alert alert-dark">HOSPITAL PATIENT PAYMENT </h4>
+{% endif %}
+</div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'HOSPITAL/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 mt-5">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Submit" class="btn btn-info">
+                <input type="reset" value="Cancel" class="btn btn-warning">
+
+            </form>
+        </div>
+
+
+        {% if zipcode %}
+
+
+        <div class="col-sm-6 mt-5">
+            <h4 class="alert alert-dark">HOSPITAL PAYMENT type </h4>
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">ZIP</th>
+                        <th scope="col">CITY</th>
+                        <th scope="col">STATE</th>
+                     
+                     
+                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                   
+
+                    {% for i in zipcode %}
+                    <tr>
+                        <td>{{i.zip}}</td>
+                        <td>{{i.city}}</td>
+                        <td>{{i.state}}</td>
+
+                  
+                    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h4 class="alert alert-dark">HOSPITAL PAYMENT type </h4>
+{% endif %}
+</div>
+</div>
+
+
+
+{% endblock %}

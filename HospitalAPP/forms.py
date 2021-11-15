@@ -1,6 +1,6 @@
 from django import forms
 from django.db.models import fields
-from .models import Hospital_department,hospital_doctor,hospital_doctor_departments,hospital_patient,hospital_roomKind,hospital_room
+from .models import Hospital_department,hospital_doctor,hospital_doctor_departments,hospital_patient,hospital_roomKind,hospital_room,hospital_appointment,hospital_roombookings,hospital_patientInsurance,hospital_patientdischargedetails,Hospital_PaymentType,Hospital_patientPayment,hospital_MedcineType,hospital_MedcineBrand,hospital_Medcine,hospital_dischargeMedication,zipCode
 
 # login page registration
 from django.contrib.auth.models import User
@@ -66,4 +66,72 @@ class hospital_roomKindForm(forms.ModelForm):
 class hospital_roomForm(forms.ModelForm):
     class Meta:
         model = hospital_room
+        fields = '__all__'
+
+# CREATE TABLE hospital_appointment ............-- 10
+class hospital_appointmentForm(forms.ModelForm):
+    class Meta:
+        model = hospital_appointment
+        fields = '__all__'
+
+# CREATE TABLE hospital_roombookings ............................-- 11
+class hospital_roombookingsForm(forms.ModelForm):
+    class Meta:
+        model = hospital_roombookings
+        fields = '__all__'
+
+# CREATE TABLE hospital_patientInsurance ................-- 12
+class hospital_patientInsuranceForm(forms.ModelForm):
+    class Meta:
+        model = hospital_patientInsurance
+        fields = '__all__'
+
+# CREATE TABLE hospital_patientdischargedetails ...........-- 13
+class hospital_patientdischargedetailsForm(forms.ModelForm):
+    class Meta:
+        model = hospital_patientdischargedetails
+        fields = '__all__'
+
+# CREATE TABLE Hospital_PaymentType...........-- 14
+class Hospital_PaymentTypeForm(forms.ModelForm):
+    class Meta:
+        model = Hospital_PaymentType
+        fields = '__all__'
+
+# CREATE TABLE Hospital_patientPayment............-- 15
+class Hospital_patientPaymentForm(forms.ModelForm):
+    class Meta:
+        model = Hospital_patientPayment
+        fields = '__all__'
+
+# CREATE TABLE hospital_MedcineType ......-- 16
+class hospital_MedcineTypeForm(forms.ModelForm):
+    class Meta:
+        model = hospital_MedcineType
+        fields = '__all__'
+
+# CREATE TABLE hospital_MedcineBrand ..........-- 17  
+class hospital_MedcineBrandForm(forms.ModelForm):
+    class Meta:
+        model = hospital_MedcineBrand
+        fields = '__all__'
+
+# CREATE TABLE hospital_Medcine ..........-- 18
+class hospital_MedcineForm(forms.ModelForm):
+    class Meta:
+        model = hospital_Medcine
+        fields = '__all__'
+
+
+
+# CREATE TABLE hospital_dischargeMedication .......-- 19
+class hospital_dischargeMedicationForm(forms.ModelForm):
+    class Meta:
+        model = hospital_dischargeMedication
+        fields = '__all__'
+
+# CREATE TABLE zipCode ......-- 20
+class zipCodeForm(forms.ModelForm):
+    class Meta:
+        model = zipCode
         fields = '__all__'

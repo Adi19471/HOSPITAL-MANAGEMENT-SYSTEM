@@ -1,0 +1,89 @@
+{% extends 'HOSPITAL/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container-md">
+    <div class="row">
+        <div class="col-sm-6 mt-5">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Submit" class="btn btn-info">
+                <input type="reset" value="Cancel" class="btn btn-warning">
+
+            </form>
+        </div>
+
+</div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+
+        {% if hpatientdischargedeatiles %}
+
+        
+        <div class="col-sm-6 mt-5">
+            <h4 class="alert alert-dark">HOSPITAL PAYMENT DISCHARGE DETAILES </h4>
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                       <th scope="col">PATIENT&nbspNAME</th>
+                  
+                       <th scope="col">ADDRESS</th>
+                    
+                       <th scope="col">SYMPTOMS</th>
+                       <th scope="col">ADMIT&nbspDATE</th>
+                       <th scope="col">REALSE&nbspDATE</th>
+                       <th scope="col">DAYSPENT</th>
+                       <th scope="col">ROOM&nbsp;CHARGE</th>
+                       <th scope="col">MEDICINE&nbsp;COST</th>
+                       <th scope="col">DOCTOR&nbsp;FEE</th>
+                       <th scope="col">OTHER&nbsp;FEES</th>
+                       <th scope="col">TOTAL</th>
+                       <th scope="col">PATIENT&nbsp;ID</th>
+                     
+                     
+                        
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for i in hpatientdischargedeatiles %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.patientName}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.symptoms}}</td>
+                        <td>{{i.admitDate}}</td>
+                        <td>{{i.releaseDate}}</td>
+                        <td>{{i.daySpent}}</td>
+                        <td>{{i.roomCharge}}</td>
+                        <td>{{i.medicineCost}}</td>
+                        <td>{{i.doctorFee}}</td>
+                        <td>{{i.OtherCharge}}</td>
+                        <td>{{i.total}}</td>
+                        <td>{{i.patientId}}</td>
+
+                    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h4 class="alert alert-dark">HOSPITAL PAYMENT DISCHARGE DETAILES </h4>
+{% endif %}
+</div>
+</div>
+
+
+
+{% endblock %}

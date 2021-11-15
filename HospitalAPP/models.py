@@ -249,6 +249,7 @@ class hospital_Medcine(models.Model):
         return str(self.id)
 
 # CREATE TABLE hospital_dischargeMedication .......-- 19
+
 class hospital_dischargeMedication(models.Model):
     id = models.IntegerField(primary_key=True)
     medcineID = models.ForeignKey(hospital_Medcine,on_delete=models.CASCADE)
