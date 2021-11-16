@@ -9,10 +9,10 @@
 <div class="jumbotron">
     <div class="row">
         <div class="col-xl-6 col-sm-4 offset-4">
-            <h1 class="btn btn-outline-info">HOSPITAL login page</h1>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{user|crispy}}
+            <h1 class="alert alert-info mt-5">HOSPITAL LOGIN  PAGE</h1>
+            <form action="{% url 'home' %}" method="POST">
+                    {% csrf_token %}
+                     {{user|crispy}}
                 <input type="submit" value="Submit" class="btn btn-info">
                 <input type="reset" value="Cancel" class="btn btn-outline-info bg-dark ">
             </form>

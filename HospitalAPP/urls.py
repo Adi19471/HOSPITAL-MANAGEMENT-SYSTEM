@@ -13,6 +13,8 @@ urlpatterns = [
     path('logouts/',views.logout_view,name="logoutss"),
 
 
+
+
     path('home/',views.home_view,name="home"),
     # urls connct views to urls data... 4
     path('HospitalDepartment/',views.HospitalDepartment_view,name="HospitalDepartment"),
