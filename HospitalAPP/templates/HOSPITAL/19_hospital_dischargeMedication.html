@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 mt-5">
@@ -67,5 +67,5 @@
 </div>
 
 
-
+{% endif%}
 {% endblock %}

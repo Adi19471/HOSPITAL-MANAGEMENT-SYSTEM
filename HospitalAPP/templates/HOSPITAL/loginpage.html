@@ -10,14 +10,14 @@
     <div class="row">
         <div class="col-sm-3 ">
             <h5 class="alert alert-info mt-5">HOSPITAL LOGIN  PAGE</h5>
-            <form action=" " method="POST">
+            <form action="{% url 'patient' %}" method="POST">
                 {% csrf_token %}
                  {{form|crispy}}
                 
                  {% if messages %}
                  {% for message in messages %}
                  {% if message.tags %}
-                 <script>alert("{{ 'You Login ' }}")</script> {% endif %}
+                 <script>alert("{{ 'You Login To HOSPITAL MANAGMENT SYSTEM ' }}")</script> {% endif %}
          
          
                  {% endfor %}

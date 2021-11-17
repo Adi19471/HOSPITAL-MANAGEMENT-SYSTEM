@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 from django.db.models.fields import IntegerField
 from django.db.models.fields.related import ForeignKey
 from django.utils.translation import activate
+from django.contrib.auth.models import User
 # Create your models here.
 
 
 # HOSPITAL DATA BASE 
+
 
 # auth group ------------ 1
 class auth_group(models.Model):

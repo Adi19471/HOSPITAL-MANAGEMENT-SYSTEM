@@ -1,16 +1,11 @@
 from django.urls import path
 from HospitalAPP import views
-# import static files using dispaly all files store
-from django.conf.urls.static import static
-from django.conf import  settings
+
 
 
 urlpatterns = [
 
-       # login page
-    path('',views.user_signup,name="userregistration"),
-    path('login/',views.user_login,name="login"),
-    path('logouts/',views.user_logout,name="logoutss"),
+
 
 
 
@@ -60,6 +55,3 @@ urlpatterns = [
  
 ]
 
-if settings.DEBUG:
-    urlpatterns  += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

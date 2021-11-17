@@ -1,63 +1,21 @@
-from django.contrib.auth import authenticate, login, logout as log
+
 from django.contrib import messages
 from django.shortcuts import render, redirect,HttpResponseRedirect,HttpResponse
-# import models
+
 from .models import Hospital_department, hospital_doctor, hospital_doctor_departments, hospital_patient, hospital_roomKind, hospital_room, hospital_appointment, hospital_roombookings, hospital_patientInsurance, hospital_patientdischargedetails, Hospital_PaymentType, Hospital_patientPayment, hospital_MedcineType, hospital_MedcineBrand, hospital_Medcine, hospital_dischargeMedication, zipCode
-# from.models import User, Hospital_department, hospital_doctor, hospital_doctor_departments, hospital_patient, hospital_roomKind, hospital_room, hospital_appointment,
-# forms
-from.forms import SignUpForm,LoginForm, Hospital_departmentForms, hospital_doctorForm, hospital_doctor_departmentsForm, hospital_patientForm, hospital_roomKindForm, hospital_roomForm, hospital_appointmentForm, hospital_roombookingsForm, hospital_patientInsuranceForm, hospital_patientdischargedetailsForm, Hospital_PaymentTypeForm, Hospital_patientPaymentForm, hospital_MedcineTypeForm, hospital_MedcineBrandForm, hospital_MedcineForm, hospital_dischargeMedicationForm, zipCodeForm
 
-
-# login registration.logout
-# from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
-# # from django.contrib.auth.models import Group
-# from .decorators import auth_users, allowed_users
-
+from.forms import  Hospital_departmentForms, hospital_doctorForm, hospital_doctor_departmentsForm, hospital_patientForm, hospital_roomKindForm, hospital_roomForm, hospital_appointmentForm, hospital_roombookingsForm, hospital_patientInsuranceForm, hospital_patientdischargedetailsForm, Hospital_PaymentTypeForm, Hospital_patientPaymentForm, hospital_MedcineTypeForm, hospital_MedcineBrandForm, hospital_MedcineForm, hospital_dischargeMedicationForm, zipCodeForm
 from django.contrib import messages
-# @login_required(login_url='login')
-
-# Logout
-def user_logout(request):
- logout(request)
- return HttpResponseRedirect('/login/')
-
-# Sigup
-def user_signup(request):
- if request.method == "POST":
-  form = SignUpForm(request.POST)
-  if form.is_valid():
-   user = form.save()
-   user.save()
-   messages.success(request,"Registration Succesfully Completed")
-#    return redirect('/')
- else:
-  form = SignUpForm()
- return render(request, 'HOSPITAL/userlogin.html', {'form':form})
-
-
-
-# Login
-def user_login(request):
- if not request.user.is_authenticated:
-  if request.method == "POST":
-   form = LoginForm(request=request, data=request.POST)
-   if form.is_valid():
-    uname = form.cleaned_data['username']
-    upass = form.cleaned_data['password']
-    user = authenticate(username=uname, password=upass)
-    if user is not None:
-     login(request, user)
-     messages.success(request, 'Logged in Successfully !!')
-     return HttpResponseRedirect('/')
-  else:
-   form = LoginForm()
-  return render(request, 'HOSPITAL/loginpage.html', {'form':form})
- else:
-  return HttpResponseRedirect('/')
+from django.contrib.auth.decorators import login_required
+from .decorators import auth_users, allowed_users
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 
 
 # ..................................................................complted register login page ,.........................
+
+
+# @login_required(login_url='user-login')
 
 
 import calendar
@@ -66,12 +24,12 @@ import datetime
 
 
 
-
+@login_required(login_url='user-login')
 def home_view(request):
     return render(request, 'HOSPITAL/home.html')
 
 # Hospital_departmentforms {hospital 4}
-
+@login_required(login_url='user-login')
 def HospitalDepartment_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -102,7 +60,7 @@ def HospitalDepartment_view(request):
    
        
 # hopital docytor detailes...............{hospital 5 }
-
+@login_required(login_url='user-login')
 def hospital_doctor_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -122,7 +80,7 @@ def hospital_doctor_view(request):
         
 
 # CREATE TABLE hospital_doctor_departments .........-- 6
-
+@login_required(login_url='user-login')
 def hospital_doctor_departments_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -143,6 +101,7 @@ def hospital_doctor_departments_view(request):
    
 
 # CREATE TABLE hospital_patient .........................-- 7
+@login_required(login_url='user-login')
 
 def hospital_patient_view(request):
     current_GMT = time.gmtime()
@@ -170,6 +129,7 @@ def hospital_patient_view(request):
 
 
 # CREATE TABLE hospital_roomKind..........-- 8
+@login_required(login_url='user-login')
 
 def hospital_roomKind_view(request):
     current_GMT = time.gmtime()
@@ -195,6 +155,8 @@ def hospital_roomKind_view(request):
  
        
 # CREATE TABLE hospital_room......................-- 9
+@login_required(login_url='user-login')
+
 def hospital_room_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -220,6 +182,8 @@ def hospital_room_view(request):
  
        
 # CREATE TABLE hospital_appointment ............-- 10
+@login_required(login_url='user-login')
+
 def hospital_appointment_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -241,6 +205,8 @@ def hospital_appointment_view(request):
        
 
 # CREATE TABLE hospital_roombookings ............................-- 11
+@login_required(login_url='user-login')
+
 def hospital_roombookings_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -265,6 +231,8 @@ def hospital_roombookings_view(request):
 
        
 # CREATE TABLE hospital_patientInsurance ................-- 12
+@login_required(login_url='user-login')
+
 def hospital_patientInsurance_view(request):
     
     current_GMT = time.gmtime()
@@ -292,6 +260,7 @@ def hospital_patientInsurance_view(request):
 
        
 # CREATE TABLE hospital_patientdischargedetails ...........-- 13
+
 def hospital_patientdischargedetails_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -318,6 +287,8 @@ def hospital_patientdischargedetails_view(request):
 
     
 # CREATE TABLE Hospital_PaymentType...........-- 14
+@login_required(login_url='user-login')
+
 def Hospital_PaymentType_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -343,6 +314,8 @@ def Hospital_PaymentType_view(request):
        
 
 # CREATE TABLE Hospital_patientPayment............-- 15
+@login_required(login_url='user-login')
+
 def Hospital_patientPayment_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -368,6 +341,8 @@ def Hospital_patientPayment_view(request):
     
 
 # CREATE TABLE hospital_MedcineType ......-- 16
+@login_required(login_url='user-login')
+
 def hospital_MedcineType_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -392,6 +367,8 @@ def hospital_MedcineType_view(request):
 
 
 # CREATE TABLE hospital_MedcineBrand ..........-- 17
+@login_required(login_url='user-login')
+
 def hospital_MedcineBrand_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -417,6 +394,8 @@ def hospital_MedcineBrand_view(request):
     
 
 # CREATE TABLE hospital_Medcine ..........-- 18
+@login_required(login_url='user-login')
+
 def hospital_Medcine_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -442,6 +421,8 @@ def hospital_Medcine_view(request):
     
 
 # CREATE TABLE hospital_dischargeMedication .......-- 19
+@login_required(login_url='user-login')
+
 def hospital_dischargeMedication_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -467,6 +448,8 @@ def hospital_dischargeMedication_view(request):
 
 
 # CREATE TABLE zipCode ......-- 20
+@login_required(login_url='user-login')
+
 def zipCode_view(request):
    
         if request.method == "POST":

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import crispy_forms 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'HospitalAPP.apps.HospitalappConfig',
- 
-    'crispy_forms',
+    'user',
+
+  'crispy_forms',
 
 ]
-CRISPY_TEMPLATES_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -139,29 +141,29 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-
-# # -------------------------------static files--------------------------------------------------------------
+# STATIC_ROOT = 'staticfiles'
 # STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static") # this is your static folder
-# ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+# -------------------------------static files--------------------------------------------------------------
+STATIC_URL = '/static/'
 
-# # ---------------------------------------------------------------------------------------------------------
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static") # this is your static folder
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+
+# ---------------------------------------------------------------------------------------------------------
 
 
 
 
-# # ---------------------------------------media-----------------------------------------------------------
-# MEDIA_URL ='/media/'
+# ---------------------------------------media-----------------------------------------------------------
+MEDIA_URL ='/media/'
 
-# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-# # -----------------------------------------------------------------------------------------------------
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# -----------------------------------------------------------------------------------------------------
 
 
 
@@ -180,3 +182,6 @@ EMAIL_HOST_USER = 'akumatha@gmail.com'
 EMAIL_HOST_PASSWORD = 'hnnaaonscbwtgyza'  
 
 
+LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_URL = 'user-login'
