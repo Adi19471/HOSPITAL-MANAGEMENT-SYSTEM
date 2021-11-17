@@ -6,54 +6,69 @@ from .models import Hospital_department,hospital_doctor,hospital_doctor_departme
 from django.contrib.auth.models import User
 
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
+from django.contrib.auth.models import User
+from django.utils.translation import gettext, gettext_lazy as _
 
+class SignUpForm(UserCreationForm):
+ password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class':'form-control'}))
+ password2 = forms.CharField(label='Confirm Password (again)', widget=forms.PasswordInput(attrs={'class':'form-control'}))
+ class Meta:
+  model = User
+  fields = ['username', 'first_name', 'last_name', 'email']
+  labels = {'first_name': 'First Name', 'last_name': 'Last Name', 'email': 'Email'}
+  widgets = {'username':forms.TextInput(attrs={'class':'form-control'}),
+  'first_name':forms.TextInput(attrs={'class':'form-control'}),
+  'last_name':forms.TextInput(attrs={'class':'form-control'}),
+  'email':forms.EmailInput(attrs={'class':'form-control'}),
+  }
 
-class SignupForm(forms.ModelForm):
-
-
-    class Meta:
-        first_name = forms.CharField(label="Name", widget=(forms.TextInput(attrs={'class': 'form-control bg-white'}))),
-        last_name = forms.CharField(label="Enter Your Last Name", widget=(forms.TextInput(attrs={'class': 'form-control bg-info'}))),
-        email = forms.EmailField(label="Enter Your Last Name", widget=(forms.EmailInput(attrs={'class': 'form-control bg-info'}))),
-        model=User
-
-        fields=['first_name', 'last_name', 'email', 'username', 'password']
-       
 class LoginForm(AuthenticationForm):
-    class Meta:
-        model = User
-        fields = ['username','password']
+ username = UsernameField(widget=forms.TextInput(attrs={'autofocus': True, 'class':'form-control'}))
+ password = forms.CharField(label=_("Password"), strip=False, widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'class':'form-control'}))
+
+
+
+
         
 
-# ----------------------------------------------------
+# ----------------------------------------------------4
 # Hospital_departmentForms 
 class Hospital_departmentForms(forms.ModelForm):
     class Meta:
+        
         model = Hospital_department
         fields = '__all__'
 
 
 
-# hospital_doctor forms
-class hospital_doctordataForms(forms.ModelForm):
+# hospital_doctor forms..............5
+class hospital_doctorForm(forms.ModelForm):
     class Meta:
         model = hospital_doctor
         fields = '__all__'
 
 
-# hospital_doctor_departments 
+# hospital_doctor_departments ............6
 
 class hospital_doctor_departmentsForm(forms.ModelForm):
     class Meta:
         model = hospital_doctor_departments
         fields = '__all__'
 
-# hospital_patient
+# hospital_patient....................7
 class hospital_patientForm(forms.ModelForm):
+ 
     class Meta:
         model = hospital_patient
         fields = '__all__'
-
+        
+        
+        widgets = {
+            
+            'admitdate': forms.DateInput(attrs={"class": "form-control",'div_id_admitDate':'datepicker'}),
+        }
+        
 
 # CREATE TABLE hospital_roomKind..........-- 8
 class hospital_roomKindForm(forms.ModelForm):

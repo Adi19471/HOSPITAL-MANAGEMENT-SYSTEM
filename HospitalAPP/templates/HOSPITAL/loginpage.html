@@ -6,16 +6,16 @@
 
 {% load crispy_forms_tags %}
   
-<div class="jumbotron">
+<div class="container">
     <div class="row">
-        <div class="col-xl-6 col-sm-4 offset-4">
-            <h1 class="alert alert-info mt-5">HOSPITAL LOGIN  PAGE</h1>
+        <div class="col-sm-3 ">
+            <h5 class="alert alert-info mt-5">HOSPITAL LOGIN  PAGE</h5>
             <form action="{% url 'home' %}" method="POST">
-                    {% csrf_token %}
-                     {{user|crispy}}
-                <input type="submit" value="Submit" class="btn btn-info">
-                <input type="reset" value="Cancel" class="btn btn-outline-info bg-dark ">
-            </form>
+                {% csrf_token %}
+                 {{form|crispy}}
+            <input type="submit" value="Submit" class="btn btn-info">
+            <input type="reset" value="Cancel" class="btn btn-outline-info bg-dark ">
+        </form>
           
         </div>
     </div>

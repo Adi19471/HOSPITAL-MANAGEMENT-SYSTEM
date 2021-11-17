@@ -1,158 +1,76 @@
-{% load static %}
 
-<nav class="navbar navbar-expand-sm navbar-light bg-dark opacity-5 shadow-sm">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="{% url 'home' %}" class="btn btn-outline-warning">Hospital</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav text-white  me-auto mb-2 mb-lg-0">
 
-
-
-
-
-
-        {% if user.is_authenticated %}
-
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'HospitalDepartment' %}">H-&nbsp;DEPARTMNT</a>
-        </li>
-
-
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'hospital-doctor' %}">Doctor</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="{% url 'hospital-doctor-deepaartt' %}">H&nbsp;deparrtment</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'patient' %}">H&nbsp;patient</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'kit' %}">H-roomkit</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'room' %}">H-room</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'appointment' %}">H-Appintment</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'roombooking' %}">H-RoomBooking</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'patientInsurence' %}">H-P-Insurence</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'patientdischarge' %}">H-P-Discharge</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'payment' %}">H-Payment</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'patientpayment' %}">H-P-Payment</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'medicine' %}">H-Medicine</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'medicine-brand' %}">M-BRAND</a>
-        </li>
-        <!-- 3 in chinge -->
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'hospital-medicine' %}">H-Medicine</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'discharge-medicine' %}">H-Discharge</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'zipcode' %}">Zipcode</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'logoutss' %}">Logout</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">{{ user.username }}</a>
-        </li>
-
-
-        {% else %}
-
-
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'logoutss' %}">Logout</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'appointment' %}">Appointment</a>
-        </li>
-        
-
-        {% endif %}
-
-
-
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'userregistration' %}">register</a>
-        </li>
-
-
-
-        <li class="nav-item">
-          <a class="nav-link text-white"><i class="fab fa-facebook"></i></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white"> <i class="fab fa-whatsapp"></i></i></a>
-        </li>
-
-
-
-      </ul>
-
-      <!-- <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown link
-        </a>
-      
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-  -->
+  
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'home' %}" style="margin-left: 450px;color: aqua;">HOSPITAL MANAGMENT SYSTEM</a>
     </div>
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HOSPITAL DOCTOR <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li><a href="{% url 'HospitalDepartment' %}">Hdeportment</a></li> 
+            <li><a href="{% url 'hospital-doctor' %}">Hdoctors</a></li>
+            <!-- <li><a href="#">Page 1-3</a></li> -->
+          </ul>
+        </li>
+       
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PATIENT <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'patient' %}">patient</a></li>
+            <!-- <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li> -->
+          </ul>
+        </li>
+  
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HOSPITALROOM <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a  href="{% url 'kit' %}">Hroomkit</a></li>
+            <li><a  href="{% url 'room' %}">Hroom</a></li>
+            <li><a  href="{% url 'appointment' %}">HAppintment</a></li>
+            <li><a  href="{% url 'roombooking' %}">HRoomBooking</a></li>
+              
+          </ul>
+        </li>
+      
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">APPOINTMENT/INSURENCE <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a  href="{% url 'appointment' %}">Appointment</a></li>
+            <li><a href="{% url 'patientInsurence' %}">HPInsurence</li>
+            <li><a href="{% url 'patientdischarge' %}">HPDischarge</a>
+            <li><a href="{% url 'payment' %}">HPayment</a>
+            <li><a href="{% url 'patientpayment' %}">HPatientPayment</a></a>
+            
+          </ul>
+        </li>
+       
+  
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MEDICINE<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a   href="{% url 'medicine' %}">Medicine</a></li>
+            <li><a  href="{% url 'medicine-brand' %}">MBRAND</a></li>
+            <li><a href="{% url 'hospital-medicine' %}">HMedicine</a></li>
+            <li><a href="{% url 'discharge-medicine' %}">HDischarge</a></li>
+            <li><a href="{% url 'zipcode' %}">Zipcode</a></li>
+            
+          </ul>
+        </li>
+
+        
+      <li><a href="{% url 'userregistration' %}">REGISTER</a></li>
+      <li><a href="{% url 'logoutss' %}">Logout</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+
+   
+     <li><a href="{% url 'userregistration' %}">REGISTER</a></li>
+     <li><a href="{% url 'login' %}">Login</a></li>
+ 
+  
+    </ul>
   </div>
+  
 </nav>

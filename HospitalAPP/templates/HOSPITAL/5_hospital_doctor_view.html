@@ -3,24 +3,34 @@
 {% load static %}
 {% block content %}
 
+
+
+
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-6 mt-5">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data" novalidate>
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ fm|crispy }}
                 <input type="submit" value="Submit" class="btn btn-info">
                 <input type="reset" value="Cancel" class="btn btn-warning">
 
             </form>
         </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
 
 
-        {% if form %}
+        {% if all_data %}
 
         <div class="col-sm-6 mt-5">
             <h4 class="alert alert-dark">DOCTOR DETAILES</h4>
-            <table class="table table-bordered table-hover table-responsive">
+            <table class="table table-bordered table-striped text-justify table-hover shadow-lg">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -35,14 +45,14 @@
                 </thead>
 
                 <tbody>
-    
-                    {% for i in form %}
+
+                    {% for i in all_data %}
                     <tr>
                         <td>{{i.id}}</td>
                         <td>{{i.address}}</td>
                         <td>{{i.status}}</td>
                         <td>{{i.user_id}}</td>
-                        <td>{{i.profile_pic.urls}}</td>
+                        <td>{{i.profile_pic.url}}</td>
                         <td>{{i.mobile}}</td>
 
                     </tr>
@@ -58,5 +68,11 @@
 {% else %}
 <h4 class="display-6">No DOCTOR DETAILES</h4>
 {% endif %}
+
+
+
+
+{% endif %}
+
 
 {% endblock %}

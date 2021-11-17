@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields import IntegerField
 from django.db.models.fields.related import ForeignKey
+from django.utils.translation import activate
 # Create your models here.
 
 
@@ -59,8 +60,8 @@ class Hospital_department(models.Model):
     id  = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=150)
 
-    def __str__(self):
-        return str(self.id)
+    # def __str__(self):
+    #     return str(self.id)
 
 
 
@@ -101,7 +102,7 @@ class hospital_patient(models.Model):
     symptoms = models.CharField(max_length=100)
     status   = models.BooleanField(default=True)
     user_id    = models.ForeignKey(auth_user,on_delete=models.CASCADE)
-    admitDate = models.DateField(default=False)
+    admitDate = models.DateField()
     profile_pic =models.ImageField(upload_to = 'hospital_patient')
     assignedDoctorId   = models.ForeignKey(hospital_doctor,on_delete=models.CASCADE)
 
@@ -138,7 +139,7 @@ class hospital_appointment(models.Model):
     doctorId   = models.ForeignKey(hospital_doctor,on_delete=models.CASCADE)
     appointmentDate = models.DateField(auto_now=False)
     description     = models.TextField()
-    status      = models.BooleanField(default=False)
+    status      = models.CharField(max_length=30,default=activate)
     doctorName  = models.CharField(max_length=40)
     patientName  = models.CharField(max_length=40)
     patientId = models.ForeignKey(hospital_patient,on_delete=models.CASCADE)

@@ -1,13 +1,15 @@
 {% extends 'HOSPITAL/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
 
-<div class="container">
-    <div class="row">
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+<div class="container-fluid">
+    <div class="row ">
         <div class="col-md-6 mt-5">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data" shadow-lg>
                 {% csrf_token %}
-                {{form.as_p}}
+                {{ form|crispy }}
                 <input type="submit" value="Submit" class="btn btn-info">
             </form>
         </div>
@@ -16,8 +18,8 @@
         {% if hdepartment %}
 
         <div class="col-sm-6 mt-5">
-            <table class="table">
-                <thead>
+            <table class="table table-bordered table-striped text-justify table-hover shadow-lg">
+                <thead class="bg-info">
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">NAME</th>
@@ -45,4 +47,6 @@
 <h4>No django</h4>
 {% endif %}
 
+
+{% endif %}
 {% endblock %}

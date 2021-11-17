@@ -125,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE =  'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -137,31 +137,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-# STATIC_URL = '/static/'
-
-STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-
-# # -------------------------------static files--------------------------------------------------------------
+# STATIC_ROOT = 'staticfiles'
 # STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static") # this is your static folder
-# ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+# -------------------------------static files--------------------------------------------------------------
+STATIC_URL = '/static/'
 
-# # ---------------------------------------------------------------------------------------------------------
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static") # this is your static folder
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+
+# ---------------------------------------------------------------------------------------------------------
 
 
 
 
-# # ---------------------------------------media-----------------------------------------------------------
-# MEDIA_URL ='/media/'
+# ---------------------------------------media-----------------------------------------------------------
+MEDIA_URL ='/media/'
 
-# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-# # -----------------------------------------------------------------------------------------------------
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# -----------------------------------------------------------------------------------------------------
 
 
 
@@ -178,3 +178,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  
 EMAIL_HOST_USER = 'akumatha@gmail.com'  
 EMAIL_HOST_PASSWORD = 'hnnaaonscbwtgyza'  
+
+
+LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_URL = 'login'

@@ -5,18 +5,20 @@
 {% load static %}
 
 {% load crispy_forms_tags %}
+
   
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-sm-4 offset-2 mt-xl-5">
-            <h1 class="btn btn-outline-info">HOSPITAL REGISTRATION PAGE</h1>
+            <h5 class="alert alert-info">HOSPITAL REGISTRATION PAGE</h5>
             <form action="" method="POST">
                 {% csrf_token %}
-                {{fm|crispy}}
+                {{form|crispy}}
+               
                 <input type="submit" value="Submit" class="btn btn-info">
                 <input type="reset" value="Cancel" class="btn btn-warning ">
             </form>
-            <a href="{% url 'login' %}" class="mt-5">Already exist user...!</a>
+            <a href="{% url 'login' %}" class="" class="btn btn-info">Already exist user...!</a>
         </div>
     </div>
 </div>

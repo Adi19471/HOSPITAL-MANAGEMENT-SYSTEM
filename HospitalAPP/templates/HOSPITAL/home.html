@@ -3,77 +3,71 @@
 {% block content %}
 
 
+<div class="container">
 
+  <div class="card img-fluid" style="width:500px">
+    <img src="{% static 'images/bg.jpg' %}" class="img-fluid" alt="..." style="width: 1100px;height: 450px;">
+    <div class="card-img-overlay">
+      <h4 class="card-title">WELCOME TO THE ....HOSPITAL MANGEMENT SYSTEM</h4>
+      <p class="card-text">24*7 Avalible.</p>
+      <a href="#" class="btn btn-primary">More info</a>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid">
 
-<div class="container " >
   <div class="row">
-    <div class="col-sm-4 col-md-4 col-xl-4" >
-      <div class="card mb-3" style="max-width: 540px;" id="homepage">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="{% static 'images/home-hospital-build.jpg' %}" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">HOSPITAL</h5>
-              <p class="card-text">A hospital is a health care institution providing patient treatment with specialized
-                medical and nursing staff and medical equipment</p>
-              <p class="card-text"><small class="btn btn-primary">More-info</small></p>
-            </div>
-          </div>
+
+    <div class="col-sm-4">
+      <div class="card" style="width:400px">
+        <img src="{% static 'images/home-medical.jpg' %}" class="img-fluid rounded-start" alt="..."
+          style="width: 400px;height: 250px;">
+        <div class="card-body">
+          <h4 class="card-title">MEDIACL</h4>
+          <p class="card-text">Medicine is the science and practice of caring for a patient, managing the diagnosis,
+            prognosis, prevention.</p>
+          <a href="#" class="btn btn-primary">More --info</a>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-4 col-md-4 col-xl-4">
-      <div class="card mb-3" style="max-width: 540px;" id="homepage">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="{% static 'images/home-medical.jpg' %}" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">MEDIACL</h5>
-              <p class="card-text">Medicine is the science and practice of caring for a patient, managing the diagnosis,
-                prognosis, prevention.</p>
-              <p class="card-text"><small class="btn btn-primary">More --info</small></p>
-            </div>
-          </div>
+    <div class="col-sm-4">
+      <div class="card" style="width:400px">
+        <img src="{% static 'images/home-one.jpg' %}" class="img-fluid rounded-start" alt="..."
+          style="width: 400px;height: 250px;">
+        <div class="card-body">
+          <h4 class="card-title">DOCTORS</h4>
+          <p class="card-text">Since doctors are responsible for their patients' well-being, this occupation is more
+            demanding than most.</p>
+          <a href="#" class="btn btn-primary">More --info</a>
         </div>
       </div>
     </div>
 
+    <div class="col-sm-4">
+      <div class="card" style="width:400px">
+        <img src="{% static 'images/home-hospital-build.jpg' %}" class="img-fluid rounded-start" alt="..."
+          style="width: 400px;height: 250px;">
+        <div class="card-body">
+          <h4 class="card-title">HOSPITAL</h4>
+          <p class="card-text">A hospital is a health care institution providing patient treatment with specialized
+            medical and nursing staff and medical equipment</p>
+          <a href="#" class="btn btn-primary">More-info</a>
 
-    <div class="col-sm-4 col-md-4 col-xl-4">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="{% static 'images/home-one.jpg' %}" class="img-fluid rounded-start" alt="..." >
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">DOCTORS</h5>
-              <p class="card-text text-justify">Since doctors are responsible for their patients' well-being, this occupation is more
-                demanding than most..</p>
-              <p class="card-text"><small class="btn btn-primary">More --info</small></p>
-            </div>
-          </div>
         </div>
       </div>
+
+
     </div>
   </div>
 </div>
 
 
 
-<div class="card bg-dark text-white">
-  <img src="{% static 'images/bg.jpg' %}" class="img-fluid" alt="...">
-  <div class="card-img-overlay">
-    <h2 class="card-title text-opacity-100">WELCOME TO THE ....HOSPITAL MANGEMENT SYSTEM</h2>
-    <p class="card-text">24*7 Avalible.</p>
-    <p class="card-text">more info</p>
-  </div>
-</div>
+
+
+
 
 
 {% endblock content %}

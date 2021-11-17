@@ -3,12 +3,14 @@
 {% load static %}
 {% block content %}
 
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 mt-5">
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
                 <input type="submit" value="Submit" class="btn btn-info">
                 <input type="reset" value="Cancel" class="btn btn-warning">
 
@@ -26,7 +28,7 @@
 
         <div class="col-sm-6 mt-5">
             <h4 class="alert alert-dark">DOCTOR PATIENT DETAILES</h4>
-            <table class="table table-bordered table-hover table-responsive">
+            <table class="table table-bordered table-striped text-justify table-hover shadow-lg">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -72,7 +74,6 @@
 {% endif %}
 </div>
 </div>
-
 
 
 {% endblock %}

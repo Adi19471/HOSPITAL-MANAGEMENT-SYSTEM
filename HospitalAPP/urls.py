@@ -8,9 +8,9 @@ from django.conf import  settings
 urlpatterns = [
 
        # login page
-    path('',views.userlogin,name="userregistration"),
-    path('login/',views.login_view,name="login"),
-    path('logouts/',views.logout_view,name="logoutss"),
+    path('',views.user_signup,name="userregistration"),
+    path('login/',views.user_login,name="login"),
+    path('logouts/',views.user_logout,name="logoutss"),
 
 
 
@@ -19,8 +19,8 @@ urlpatterns = [
     # urls connct views to urls data... 4
     path('HospitalDepartment/',views.HospitalDepartment_view,name="HospitalDepartment"),
     # hospital_doctor_view...5 
-    path('hospital-doctor/',views.hospital_doctor_view,name="hospital-doctor"),
-    # hospital_patient_view....6
+    path('hospital-doctordata/',views.hospital_doctor_view,name="hospital-doctor"),
+    # hospital_patient_view....7
     path('hospital-patient-detailes/',views.hospital_patient_view,name="patient"),
     # CREATE TABLE hospital_roomKind..........-- 8
     path('hospital-room-kit/',views.hospital_roomKind_view,name='kit'),
