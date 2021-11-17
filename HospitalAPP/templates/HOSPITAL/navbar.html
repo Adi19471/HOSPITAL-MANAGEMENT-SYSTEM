@@ -1,73 +1,74 @@
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
 
-  
+    
     <div class="navbar-header">
       <a class="navbar-brand" href="{% url 'home' %}" style="margin-left: 450px;color: aqua;">HOSPITAL MANAGMENT SYSTEM</a>
     </div>
-
+   
     <ul class="nav navbar-nav">
       <li class="active"><a href="{% url 'home' %}">Home</a></li>
 
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HOSPITAL DOCTOR <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HOSPITAL DOCTOR <span class="caret"></span></a>
+        <ul class="dropdown-menu">
 
-            <li><a href="{% url 'HospitalDepartment' %}">Hdeportment</a></li> 
-            <li><a href="{% url 'hospital-doctor' %}">Hdoctors</a></li>
-            <!-- <li><a href="#">Page 1-3</a></li> -->
-          </ul>
-        </li>
-       
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PATIENT <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{% url 'patient' %}">patient</a></li>
-            <!-- <li><a href="#">Page 1-2</a></li>
-            <li><a href="#">Page 1-3</a></li> -->
-          </ul>
-        </li>
-  
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HOSPITALROOM <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a  href="{% url 'kit' %}">Hroomkit</a></li>
-            <li><a  href="{% url 'room' %}">Hroom</a></li>
-            <li><a  href="{% url 'appointment' %}">HAppintment</a></li>
-            <li><a  href="{% url 'roombooking' %}">HRoomBooking</a></li>
-              
-          </ul>
-        </li>
+          <li><a href="{% url 'HospitalDepartment' %}">Hdeportment</a></li> 
+          <li><a href="{% url 'hospital-doctor' %}">Hdoctors</a></li>
+          <!-- <li><a href="#">Page 1-3</a></li> -->
+        </ul>
+      </li>
+     
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PATIENT <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'patient' %}">patient</a></li>
+          <!-- <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li> -->
+        </ul>
+      </li>
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HOSPITALROOM <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a  href="{% url 'kit' %}">Hroomkit</a></li>
+          <li><a  href="{% url 'room' %}">Hroom</a></li>
+          <li><a  href="{% url 'appointment' %}">HAppintment</a></li>
+          <li><a  href="{% url 'roombooking' %}">HRoomBooking</a></li>
+            
+        </ul>
+      </li>
+    
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">APPOINTMENT/INSURENCE <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a  href="{% url 'appointment' %}">Appointment</a></li>
+          <li><a href="{% url 'patientInsurence' %}">HPInsurence</li>
+          <li><a href="{% url 'patientdischarge' %}">HPDischarge</a>
+          <li><a href="{% url 'payment' %}">HPayment</a>
+          <li><a href="{% url 'patientpayment' %}">HPatientPayment</a></a>
+          
+        </ul>
+      </li>
+     
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MEDICINE<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a   href="{% url 'medicine' %}">Medicine</a></li>
+          <li><a  href="{% url 'medicine-brand' %}">MBRAND</a></li>
+          <li><a href="{% url 'hospital-medicine' %}">HMedicine</a></li>
+          <li><a href="{% url 'discharge-medicine' %}">HDischarge</a></li>
+          <li><a href="{% url 'zipcode' %}">Zipcode</a></li>
+          
+        </ul>
+      </li>
+
       
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">APPOINTMENT/INSURENCE <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a  href="{% url 'appointment' %}">Appointment</a></li>
-            <li><a href="{% url 'patientInsurence' %}">HPInsurence</li>
-            <li><a href="{% url 'patientdischarge' %}">HPDischarge</a>
-            <li><a href="{% url 'payment' %}">HPayment</a>
-            <li><a href="{% url 'patientpayment' %}">HPatientPayment</a></a>
-            
-          </ul>
-        </li>
+    <li><a href="{% url 'userregistration' %}">REGISTER</a></li>
+    <li><a href="{% url 'logoutss' %}">{{ user.username|upper}} &nbsp;Logout</a></li>
+    <li><a href="{% url 'login' %}">Login</a></li>
+
+
        
+
   
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MEDICINE<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a   href="{% url 'medicine' %}">Medicine</a></li>
-            <li><a  href="{% url 'medicine-brand' %}">MBRAND</a></li>
-            <li><a href="{% url 'hospital-medicine' %}">HMedicine</a></li>
-            <li><a href="{% url 'discharge-medicine' %}">HDischarge</a></li>
-            <li><a href="{% url 'zipcode' %}">Zipcode</a></li>
-            
-          </ul>
-        </li>
-
-        
-      <li><a href="{% url 'userregistration' %}">REGISTER</a></li>
-      <li><a href="{% url 'logoutss' %}">Logout</a></li>
-      <li><a href="{% url 'login' %}">Login</a></li>
-
-
- 
-  
+   
     </ul>
   </div>
   

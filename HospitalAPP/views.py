@@ -1,4 +1,3 @@
-
 from django.contrib.auth import authenticate, login, logout as log
 from django.contrib import messages
 from django.shortcuts import render, redirect,HttpResponseRedirect,HttpResponse
@@ -10,12 +9,13 @@ from.forms import SignUpForm,LoginForm, Hospital_departmentForms, hospital_docto
 
 
 # login registration.logout
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import Group
+# # from django.contrib.auth.models import Group
+# from .decorators import auth_users, allowed_users
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 
 # Logout
 def user_logout(request):
@@ -31,6 +31,7 @@ def user_signup(request):
    user = form.save()
 #    group = Group.objects.get(name='Author')
    user.save()
+   return redirect('/login/')
  else:
   form = SignUpForm()
  return render(request, 'HOSPITAL/userlogin.html', {'form':form})
@@ -62,12 +63,14 @@ import calendar
 import time
 import datetime
 
-# @login_required(login_url='login')
+
+
+
 def home_view(request):
     return render(request, 'HOSPITAL/home.html')
 
 # Hospital_departmentforms {hospital 4}
-# @login_required(login_url='login')
+
 def HospitalDepartment_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -98,8 +101,8 @@ def HospitalDepartment_view(request):
    
        
 # hopital docytor detailes...............{hospital 5 }
-def hospital_doctor_view(request):
 
+def hospital_doctor_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
     initial_data = {
@@ -118,7 +121,7 @@ def hospital_doctor_view(request):
         
 
 # CREATE TABLE hospital_doctor_departments .........-- 6
-# @login_required(login_url='login')
+
 def hospital_doctor_departments_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -139,7 +142,7 @@ def hospital_doctor_departments_view(request):
    
 
 # CREATE TABLE hospital_patient .........................-- 7
-# @login_required(login_url='login')
+
 def hospital_patient_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -166,7 +169,7 @@ def hospital_patient_view(request):
 
 
 # CREATE TABLE hospital_roomKind..........-- 8
-# @login_required(login_url='login')
+
 def hospital_roomKind_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -191,8 +194,6 @@ def hospital_roomKind_view(request):
  
        
 # CREATE TABLE hospital_room......................-- 9
-
-# @login_required(login_url='login')
 def hospital_room_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -218,8 +219,6 @@ def hospital_room_view(request):
  
        
 # CREATE TABLE hospital_appointment ............-- 10
-
-# @login_required(login_url='login')
 def hospital_appointment_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -241,7 +240,6 @@ def hospital_appointment_view(request):
        
 
 # CREATE TABLE hospital_roombookings ............................-- 11
-# @login_required(login_url='login')
 def hospital_roombookings_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -266,8 +264,6 @@ def hospital_roombookings_view(request):
 
        
 # CREATE TABLE hospital_patientInsurance ................-- 12
-
-# @login_required(login_url='login')
 def hospital_patientInsurance_view(request):
     
     current_GMT = time.gmtime()
@@ -295,8 +291,6 @@ def hospital_patientInsurance_view(request):
 
        
 # CREATE TABLE hospital_patientdischargedetails ...........-- 13
-
-# @login_required(login_url='login')
 def hospital_patientdischargedetails_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -323,8 +317,6 @@ def hospital_patientdischargedetails_view(request):
 
     
 # CREATE TABLE Hospital_PaymentType...........-- 14
-
-# @login_required(login_url='login')
 def Hospital_PaymentType_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -350,7 +342,6 @@ def Hospital_PaymentType_view(request):
        
 
 # CREATE TABLE Hospital_patientPayment............-- 15
-# @login_required(login_url='login')
 def Hospital_patientPayment_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -376,7 +367,6 @@ def Hospital_patientPayment_view(request):
     
 
 # CREATE TABLE hospital_MedcineType ......-- 16
-# @login_required(login_url='login')
 def hospital_MedcineType_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -401,7 +391,6 @@ def hospital_MedcineType_view(request):
 
 
 # CREATE TABLE hospital_MedcineBrand ..........-- 17
-# @login_required(login_url='login')
 def hospital_MedcineBrand_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -427,7 +416,6 @@ def hospital_MedcineBrand_view(request):
     
 
 # CREATE TABLE hospital_Medcine ..........-- 18
-# @login_required(login_url='login')
 def hospital_Medcine_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -453,7 +441,6 @@ def hospital_Medcine_view(request):
     
 
 # CREATE TABLE hospital_dischargeMedication .......-- 19
-# @login_required(login_url='login')
 def hospital_dischargeMedication_view(request):
     current_GMT = time.gmtime()
     ts = calendar.timegm(current_GMT)
@@ -479,7 +466,6 @@ def hospital_dischargeMedication_view(request):
 
 
 # CREATE TABLE zipCode ......-- 20
-# @login_required(login_url='login')
 def zipCode_view(request):
    
         if request.method == "POST":
