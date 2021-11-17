@@ -6,24 +6,32 @@
 
 {% load crispy_forms_tags %}
 
-  
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-sm-4 offset-2 mt-xl-5">
-            <h5 class="alert alert-info">HOSPITAL REGISTRATION PAGE</h5>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{form|crispy}}
-               
-                <input type="submit" value="Submit" class="btn btn-info">
-                <input type="reset" value="Cancel" class="btn btn-warning ">
-            </form>
-            <a href="{% url 'login' %}" class="" class="btn btn-info">Already exist user...!</a>
-        </div>
-    </div>
+
+
+
+<div class="col-sm-6">
+    <h3 class="text-white ">HOSPITAL REGISTRATION </h3>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+       
+        {{form.as_p}}
+
+        <input type="submit" class="btn btn-primary" value="Login">
+        <script>
+            alert('{{  "Register Succesfully Completed" }}');
+        </script>
+        <input type="reset" class="btn btn-warning" value="cancel">
+        <a href="{% url 'login' %}" class="btn btn-info" class="btn btn-info">Login (Existing User)</a>
+        
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="alert alert-danger my-3">{{error}}</p>
+       
+        {% endfor %}
+        {% endif %}
+        
+    </form>
 </div>
-
-
 
 
 {% endblock content %}

@@ -14,7 +14,7 @@ from django.contrib.auth import authenticate, login, logout
 # # from django.contrib.auth.models import Group
 # from .decorators import auth_users, allowed_users
 
-
+from django.contrib import messages
 # @login_required(login_url='login')
 
 # Logout
@@ -31,10 +31,13 @@ def user_signup(request):
    user = form.save()
 #    group = Group.objects.get(name='Author')
    user.save()
-   return redirect('/login/')
+   messages.success(request,"Registration Succesfully Completed")
+#    return redirect('')
  else:
   form = SignUpForm()
  return render(request, 'HOSPITAL/userlogin.html', {'form':form})
+
+
 
 # Login
 def user_login(request):
@@ -48,12 +51,12 @@ def user_login(request):
     if user is not None:
      login(request, user)
      messages.success(request, 'Logged in Successfully !!')
-     return HttpResponseRedirect('/home/')
+     return HttpResponseRedirect('/')
   else:
    form = LoginForm()
   return render(request, 'HOSPITAL/loginpage.html', {'form':form})
  else:
-  return HttpResponseRedirect('/home/')
+  return HttpResponseRedirect('/')
 
 
 # ..................................................................complted register login page ,.........................

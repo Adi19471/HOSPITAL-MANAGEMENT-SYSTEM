@@ -180,6 +180,3 @@ EMAIL_HOST_USER = 'akumatha@gmail.com'
 EMAIL_HOST_PASSWORD = 'hnnaaonscbwtgyza'  
 
 
-LOGIN_REDIRECT_URL = 'home'
-
-LOGIN_URL = 'login'
