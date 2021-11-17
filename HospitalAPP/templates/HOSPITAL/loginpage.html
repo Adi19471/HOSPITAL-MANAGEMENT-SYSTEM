@@ -13,6 +13,17 @@
             <form action=" " method="POST">
                 {% csrf_token %}
                  {{form|crispy}}
+                
+                 {% if messages %}
+                 {% for message in messages %}
+                 {% if message.tags %}
+                 <script>alert("{{ 'You Login ' }}")</script> {% endif %}
+         
+         
+                 {% endfor %}
+         
+                 {% endif %}
+                
             <input type="submit" value="Submit" class="btn btn-info">
             <input type="reset" value="Cancel" class="btn btn-outline-info bg-dark ">
         </form>

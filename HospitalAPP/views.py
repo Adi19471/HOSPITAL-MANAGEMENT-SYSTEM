@@ -27,12 +27,10 @@ def user_signup(request):
  if request.method == "POST":
   form = SignUpForm(request.POST)
   if form.is_valid():
-   messages.success(request, 'Congratulations!! You have become an Author.')
    user = form.save()
-#    group = Group.objects.get(name='Author')
    user.save()
    messages.success(request,"Registration Succesfully Completed")
-#    return redirect('')
+#    return redirect('/')
  else:
   form = SignUpForm()
  return render(request, 'HOSPITAL/userlogin.html', {'form':form})
