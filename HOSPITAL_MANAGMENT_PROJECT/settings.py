@@ -139,29 +139,29 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = 'staticfiles'
-# STATIC_URL = '/static/'
-
-
-# -------------------------------static files--------------------------------------------------------------
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static") # this is your static folder
-]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+# # -------------------------------static files--------------------------------------------------------------
+# STATIC_URL = '/static/'
 
-# ---------------------------------------------------------------------------------------------------------
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static") # this is your static folder
+# ]
+
+# STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+
+# # ---------------------------------------------------------------------------------------------------------
 
 
 
 
-# ---------------------------------------media-----------------------------------------------------------
-MEDIA_URL ='/media/'
+# # ---------------------------------------media-----------------------------------------------------------
+# MEDIA_URL ='/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-# -----------------------------------------------------------------------------------------------------
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# # -----------------------------------------------------------------------------------------------------
 
 
 
