@@ -148,22 +148,22 @@ STATIC_URL = '/static/'
 # -------------------------------static files--------------------------------------------------------------
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static") # this is your static folder
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static") # this is your static folder
+# ]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
+# STATIC_ROOT = os.path.join(BASE_DIR,'assets') #this is you assets folder.
 
-# ---------------------------------------------------------------------------------------------------------
-
-
+# # ---------------------------------------------------------------------------------------------------------
 
 
-# ---------------------------------------media-----------------------------------------------------------
-MEDIA_URL ='/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-# -----------------------------------------------------------------------------------------------------
+
+# # ---------------------------------------media-----------------------------------------------------------
+# MEDIA_URL ='/media/'
+
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# # -----------------------------------------------------------------------------------------------------
 
 
 
